@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réserver votre Séjour Écotouristique — Green Camping Tampolo | Fénérive-Est</title>
+  <meta name="description" content="Réservez votre séjour écotouristique à Fénérive-Est avec Green Camping Tampolo. Forfaits BUD, BLOOM et CLOVE. Formulaire de réservation rapide pour randonnée, pirogue et camping écoresponsable.">
+  <meta name="keywords" content="réserver Green Camping Tampolo, réservation écotourisme Madagascar, forfait BUD BLOOM CLOVE, camping Fénérive-Est, randonnée lac Tampolo">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:title" content="Réserver — Green Camping Tampolo">
+  <meta property="og:description" content="Réservez votre aventure écotouristique à Fénérive-Est. Forfaits à partir de 50 000 Ar.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://greencamping-tampolo.com/reservation.html">
+  <meta property="og:locale" content="fr_FR">
+
+  <link rel="canonical" href="https://greencamping-tampolo.com/reservation.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Réservation Green Camping Tampolo",
+    "description": "Formulaire de réservation pour les séjours écotouristiques à Fénérive-Est.",
+    "url": "https://greencamping-tampolo.com/reservation.html",
+    "mainEntity": {
+      "@type": "TravelAgency",
+      "name": "Green Camping Tampolo",
+      "email": "green.campingfen@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fénérive-Est",
+        "addressCountry": "MG"
+      }
+    }
+  }
+  </script>
+<base target="_blank">
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu principal</a>
+
+  <header>
+    <div class="logo">
+      <a href="index.html" aria-label="Green Camping Tampolo - Accueil">
+        <img src="logo.png" alt="Logo Green Camping Tampolo" width="160" height="55">
+      </a>
+    </div>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="histoire.html">Histoire & Équipe</a></li>
+        <li><a href="circuit.html">Circuit</a></li>
+        <li><a href="forfaits.html">Forfaits</a></li>
+        <li><a href="engagement.html">Engagement</a></li>
+        <li><a href="infos.html">Infos FAQ</a></li>
+        <li class="active"><a href="reservation.html" class="btn" style="padding:0.6rem 1.2rem;">Réserver</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a> &rsaquo; <span aria-current="page">Réservation</span>
+    </nav>
+
+    <div class="grid-2" style="align-items:start;">
+
+      <div>
+        <h1 style="font-size:3rem;margin-bottom:1.5rem;">Prêt pour l'aventure à Fénérive-Est ?</h1>
+        <p style="font-size:1.1rem;margin-bottom:2rem;">Remplissez ce formulaire pour nous transmettre votre demande. Notre équipe vous recontactera très vite pour finaliser les détails de votre séjour écotouristique au lac Tampolo.</p>
+
+        <div style="background:var(--bg-card);padding:2rem;border-radius:var(--radius-lg);margin-bottom:2rem;box-shadow:var(--shadow);">
+          <h3 style="margin-bottom:1rem;color:var(--accent);">📋 Récapitulatif des forfaits</h3>
+          <ul style="line-height:2.2;">
+            <li><strong>BUD</strong> — Écoles & Clubs : <span style="color:var(--accent);font-weight:bold;">50 000 Ar / élève</span></li>
+            <li><strong>BLOOM</strong> — Corporate & ONG : <span style="color:var(--accent);font-weight:bold;">200 000 Ar / pers.</span></li>
+            <li><strong>CLOVE</strong> — International : <span style="color:var(--accent);font-weight:bold;">382 500 Ar / pers.</span></li>
+          </ul>
+          <p style="margin-top:1rem;font-size:0.9rem;color:var(--text-muted);">Acompte de 30% pour confirmation. Solde à régler le jour J.</p>
+        </div>
+
+        <img src="./image/sfmada.jpeg" alt="Ambiance chaleureuse au camping Green Camping Tampolo à Fénérive-Est" class="img-fluid" style="height:500px;object-position:center;" width="600" height="700" loading="eager">
+      </div>
+
+      <div class="form-container">
+        <h2 style="margin-bottom:1.5rem;">Formulaire de réservation</h2>
+
+        <!-- Message de confirmation -->
+        <div id="success-message" style="display:none;background:var(--primary);color:#fff;padding:1.5rem;border-radius:var(--radius-md);margin-bottom:1.5rem;text-align:center;">
+          <h3 style="color:#fff;margin-bottom:0.5rem;">✅ Demande envoyée !</h3>
+          <p>Merci pour votre réservation. Notre équipe vous contactera sous 24-48h.</p>
+        </div>
+
+        <!-- Message d'erreur -->
+        <div id="error-message" style="display:none;background:#dc3545;color:#fff;padding:1.5rem;border-radius:var(--radius-md);margin-bottom:1.5rem;text-align:center;">
+          <h3 style="color:#fff;margin-bottom:0.5rem;">❌ Une erreur s'est produite</h3>
+          <p>Veuillez réessayer ou nous contacter directement.</p>
+        </div>
+
+        <form id="bookForm">
+          <div class="form-group">
+            <label for="fname">Nom / Organisation *</label>
+            <input type="text" id="fname" name="NOM" required placeholder="Votre nom ou organisation">
+          </div>
+
+          <div class="form-group">
+            <label for="femail">Email *</label>
+            <input type="email" id="femail" name="EMAIL" required placeholder="votre@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="fphone">Téléphone *</label>
+            <input type="tel" id="fphone" name="TELEPHONE" required placeholder="+261 XX XX XXX XX">
+          </div>
+
+          <div class="form-group">
+            <label for="fpack">Forfait choisi *</label>
+            <select id="fpack" name="FORFAIT" required>
+              <option value="">Sélectionnez une option</option>
+              <option value="BUD">BUD — Écoles & Clubs (50 000 Ar/élève)</option>
+              <option value="BLOOM">BLOOM — Corporate & ONG (200 000 Ar/pers.)</option>
+              <option value="CLOVE">CLOVE — International (382 500 Ar/pers.)</option>
+            </select>
+          </div>
+
+          <div class="grid-2" style="gap:1rem;margin-bottom:0;">
+            <div class="form-group">
+              <label for="fnum">Participants *</label>
+              <input type="number" id="fnum" name="PARTICIPANTS" min="1" required placeholder="Nombre de participants">
+            </div>
+            <div class="form-group">
+              <label for="fdate">Date souhaitée *</label>
+              <input type="date" id="fdate" name="DATE" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="fmessage">Message (optionnel)</label>
+            <textarea id="fmessage" name="MESSAGE" rows="3" placeholder="Questions, demandes spéciales..."></textarea>
+          </div>
+
+          <!-- Case à cocher RGPD -->
+          <div class="form-group" style="display:flex;align-items:flex-start;gap:0.75rem;">
+            <input type="checkbox" id="rgpd" name="RGPD" required style="width:auto;margin-top:0.3rem;">
+            <label for="rgpd" style="margin-bottom:0;font-weight:400;font-size:0.9rem;color:var(--text-muted);">
+              J'accepte que mes données soient utilisées par Green Camping Tampolo pour traiter ma demande de réservation. *
+            </label>
+          </div>
+
+          <button type="submit" class="btn" id="submitBtn" style="width:100%;font-size:1.1rem;">
+            <span id="btnText">Envoyer ma demande de réservation</span>
+            <span id="btnLoader" style="display:none;">Envoi en cours...</span>
+          </button>
+
+          <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-muted);text-align:center;">
+            En soumettant ce formulaire, vous acceptez d'être contacté par Green Camping Tampolo.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="circuit.html">Circuit</a>
+      <a href="forfaits.html">Forfaits</a>
+      <a href="engagement.html">Engagement</a>
+      <a href="infos.html">FAQ</a>
+      <a href="reservation.html">Réserver</a>
+    </div>
+    <p>&copy; 2026 Green Camping Tampolo — Fénérive-Est, Madagascar</p>
+    <p style="font-size:0.8rem;opacity:0.6;margin-top:0.5rem;">Écotourisme durable | Circuit de 27 km | Lac Tampolo</p>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Retour en haut de page">↑</a>
+
+  <script>
+    
+    const form = document.getElementById('bookForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const btnLoader = document.getElementById('btnLoader');
+    const successMsg = document.getElementById('success-message');
+    const errorMsg = document.getElementById('error-message');
+
+    // Pré-remplissage forfait depuis URL (?forfait=BUD)
+    const urlParams = new URLSearchParams(window.location.search);
+    const forfait = urlParams.get('forfait');
+    if (forfait) {
+      document.getElementById('fpack').value = forfait;
+    }
+
+    // Soumission du formulaire
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Désactiver le bouton pendant l'envoi
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
+
+      // Masquer les messages précédents
+      successMsg.style.display = 'none';
+      errorMsg.style.display = 'none';
+
+      // Récupérer les données du formulaire
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        // Envoyer vers send.php (côté serveur — la clé API est cachée)
+        const response = await fetch('send.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          // Afficher le message de succès
+          successMsg.style.display = 'block';
+          form.reset();
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error(result.message || 'Erreur serveur');
+        }
+
+      } catch (error) {
+        console.error('Erreur:', error);
+        errorMsg.style.display = 'block';
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } finally {
+        // Réactiver le bouton
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+      }
+    });
+  </script>
+
+  <script>
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) backToTop.classList.add('visible');
+      else backToTop.classList.remove('visible');
+    });
+    backToTop.addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+  </script>
+
+</body>
+</html>

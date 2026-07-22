@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://greencamping-tampolo.com/sitemap.xml
+
+# Green Camping Tampolo - Fénérive-Est, Madagascar
+# Écotourisme durable | Circuit de 27 km | Lac Tampolo
