@@ -84,7 +84,7 @@
           <p style="margin-top:1rem;font-size:0.9rem;color:var(--text-muted);">Acompte de 30% pour confirmation. Solde à régler le jour J.</p>
         </div>
 
-        <img src="./image/sfmada.jpeg" alt="Ambiance chaleureuse au camping Green Camping Tampolo à Fénérive-Est" class="img-fluid" style="height:500px;object-position:center;" width="600" height="700" loading="eager">
+        <img src="https://kimi-web-img.moonshot.cn/img/dynamic-media-cdn.tripadvisor.com/7a008c4f4ad30face8e9c482c9c001f8b04aa91c.jpg" alt="Ambiance chaleureuse au camping Green Camping Tampolo à Fénérive-Est" class="img-fluid" style="height:500px;object-position:center;" width="600" height="700" loading="eager">
       </div>
 
       <div class="form-container">
@@ -99,7 +99,7 @@
         <!-- Message d'erreur -->
         <div id="error-message" style="display:none;background:#dc3545;color:#fff;padding:1.5rem;border-radius:var(--radius-md);margin-bottom:1.5rem;text-align:center;">
           <h3 style="color:#fff;margin-bottom:0.5rem;">❌ Une erreur s'est produite</h3>
-          <p>Veuillez réessayer ou nous contacter directement.</p>
+          <p id="error-detail">Veuillez réessayer ou nous contacter directement.</p>
         </div>
 
         <form id="bookForm">
@@ -182,13 +182,18 @@
   <a href="#" class="back-to-top" id="backToTop" aria-label="Retour en haut de page">↑</a>
 
   <script>
-    
+    // ═══════════════════════════════════════════════════════════════
+    // FORMULAIRE — Envoie vers /api/send (Serverless Function Vercel)
+    // La clé API Brevo est cachée côté serveur
+    // ═══════════════════════════════════════════════════════════════
+
     const form = document.getElementById('bookForm');
     const submitBtn = document.getElementById('submitBtn');
     const btnText = document.getElementById('btnText');
     const btnLoader = document.getElementById('btnLoader');
     const successMsg = document.getElementById('success-message');
     const errorMsg = document.getElementById('error-message');
+    const errorDetail = document.getElementById('error-detail');
 
     // Pré-remplissage forfait depuis URL (?forfait=BUD)
     const urlParams = new URLSearchParams(window.location.search);
@@ -197,29 +202,36 @@
       document.getElementById('fpack').value = forfait;
     }
 
-    // Soumission du formulaire
+    // Soumission AJAX vers l'API Vercel
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      // Désactiver le bouton pendant l'envoi
+      // Désactiver le bouton
       submitBtn.disabled = true;
       btnText.style.display = 'none';
       btnLoader.style.display = 'inline';
 
-      // Masquer les messages précédents
+      // Masquer les messages
       successMsg.style.display = 'none';
       errorMsg.style.display = 'none';
 
-      // Récupérer les données du formulaire
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData.entries());
+      // Construire l'objet de données
+      const data = {
+        NOM: document.getElementById('fname').value.trim(),
+        EMAIL: document.getElementById('femail').value.trim(),
+        TELEPHONE: document.getElementById('fphone').value.trim(),
+        FORFAIT: document.getElementById('fpack').value,
+        PARTICIPANTS: document.getElementById('fnum').value,
+        DATE: document.getElementById('fdate').value,
+        MESSAGE: document.getElementById('fmessage').value.trim()
+      };
 
       try {
-        // Envoyer vers send.php (côté serveur — la clé API est cachée)
-        const response = await fetch('send.php', {
+        const response = await fetch('/api/send', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
           body: JSON.stringify(data)
         });
@@ -227,20 +239,21 @@
         const result = await response.json();
 
         if (response.ok && result.success) {
-          // Afficher le message de succès
           successMsg.style.display = 'block';
           form.reset();
           successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
-          throw new Error(result.message || 'Erreur serveur');
+          errorDetail.textContent = result.message || "Erreur lors de l'envoi. Veuillez réessayer.";
+          errorMsg.style.display = 'block';
+          errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
       } catch (error) {
         console.error('Erreur:', error);
+        errorDetail.textContent = 'Erreur réseau. Vérifiez votre connexion et réessayez.';
         errorMsg.style.display = 'block';
         errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
       } finally {
-        // Réactiver le bouton
         submitBtn.disabled = false;
         btnText.style.display = 'inline';
         btnLoader.style.display = 'none';
